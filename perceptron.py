@@ -51,39 +51,6 @@ def getTrain_Input():
     cellphones = np.array([cv2.resize(cv2.imread(file,0),(128,128)).flatten() for file in glob.glob("train/cellphone/*.jpg")])
     return cannons, cellphones
 
-
-def getTrain_Input2():
-    cn = []
-    for file in glob.glob("train/Cat/*.jpg"):
-        print(file)
-        im = cv2.imread(file, 0)
-        #print(type(im))
-        if im is None:
-            continue
-        else:
-            im = cv2.resize(im, (128, 128))
-            im = im.flatten()
-            cn.append(im)
-            #print(im)
-
-
-    cl = []
-    for file in glob.glob("train/Dog/*.jpg"):
-        print(file)
-        im = cv2.imread(file, 0)
-        #print(type(im))
-        if im is None:
-            continue
-        else:
-            im = cv2.resize(im, (128, 128))
-            im = im.flatten()
-            cl.append(im)
-            #print(im)
-    cannons = np.array(cn)
-    cellphones = np.array(cl)
-    return cannons, cellphones
-
-
 #Sets expected output of the cannon to 0
 #Sets expected output of the cellphone to 1
 #cannons : Training cannon data, cellphones : Training cellphone data
